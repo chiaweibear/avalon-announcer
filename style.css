@@ -1,0 +1,41 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f9;
+    margin: 0;
+    font-size: 16px; /* base font size */
+}
+
+select, input, button {
+    width: 90%; /* responsive width */
+    padding: 12px;
+    margin: 10px auto; /* centering */
+    display: block; /* ensures full width */
+}
+
+button {
+    cursor: pointer;
+    touch-action: manipulation; /* improves responsiveness of buttons on touch devices */
+}
+
+/* Responsive adjustments for smaller devices like iPhones */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* slightly smaller font size for small devices */
+    }
+
+    button, select, input {
+        width: 95%; /* larger touch targets for smaller screens */
+    }
+}
+
+button.selected {
+    background-color: #4CAF50; /* Green background for selected characters */
+    color: white;
+}
+
+#charactersSelection label {
+    display: inline-block;
+    margin: 5px;
+}
