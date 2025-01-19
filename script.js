@@ -54,7 +54,7 @@ function buildInstructions(characters) {
     ];
 
     if (characters.includes('Merlin')) {
-        instructionQueue.push({ text: "Minions of Mordred, extend your thumb so Merlin can see who you are.", delay: 3000 });
+        instructionQueue.push({ text: "Minions of Mordred, extend your thumb so Merlin can see you.", delay: 3000 });
         instructionQueue.push({ text: "Merlin, open your eyes and look for Minions of Mordred.", delay: 7000 });
         instructionQueue.push({ text: "Minions of Mordred, put your thumbs down. Merlin, close your eyes.", delay: 3000 });
     }
@@ -81,4 +81,19 @@ function speakNext() {
 function abortNarration() {
     synth.cancel();
     currentInstruction = 0; // Reset instruction sequence
+}
+
+function resetGame() {
+    // Clear selected characters array
+    selectedCharacters = [];
+    // Remove 'selected' class from all character buttons
+    const buttons = document.querySelectorAll('#charactersSelection button');
+    buttons.forEach(button => {
+        button.classList.remove('selected');
+    });
+    // Optionally reset the instruction queue and current instruction index if needed
+    instructionQueue = [];
+    currentInstruction = 0;
+    // Stop any ongoing narration
+    synth.cancel();
 }
